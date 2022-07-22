@@ -1,14 +1,14 @@
 import { Meta, Story } from '@storybook/react';
 
-import { RepositoryItem, RepositoryItemProps } from './RepositoryItem';
+import { Repository, RepositoryProps } from './Repository';
 
 export default {
   title: 'molecules/RepositoryItem',
-  component: RepositoryItem
+  component: Repository
 } as Meta;
 
-const Template: Story<RepositoryItemProps> = (args: RepositoryItemProps) => (
-  <RepositoryItem {...args} />
+const Template: Story<RepositoryProps> = (args: RepositoryProps) => (
+  <Repository {...args} />
 );
 
 export const Default = Template.bind({});

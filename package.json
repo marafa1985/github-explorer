@@ -49,6 +49,7 @@
   "jest": {
     "collectCoverageFrom": [
       "src/**/*.{ts,tsx}",
+      "!src/**/*.d.ts",
       "!src/**/*.stories.tsx",
       "!src/index.tsx",
       "!src/theme/icons/index.ts"

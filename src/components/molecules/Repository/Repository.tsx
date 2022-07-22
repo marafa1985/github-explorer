@@ -3,17 +3,17 @@ import styled from 'styled-components';
 import { theme } from 'theme';
 import { pixelToRem } from 'utils/pixelToRem';
 
-export type RepositoryItemProps = {
+export type RepositoryProps = {
   name?: string;
   stargazers_count?: number;
   description?: string | null;
 };
 
-export const RepositoryItem = ({
+export const Repository = ({
   name = 'Untitled Repo',
   stargazers_count = 0,
   description
-}: RepositoryItemProps) => (
+}: RepositoryProps) => (
   <StyledRepositoryItem data-testid="repositoryItem">
     <StyledRepositoryItemHeader>
       <StyledRepositoryItemTitle>{name}</StyledRepositoryItemTitle>
