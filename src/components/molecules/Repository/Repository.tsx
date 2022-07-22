@@ -14,7 +14,7 @@ export const Repository = ({
   stargazers_count = 0,
   description
 }: RepositoryProps) => (
-  <StyledRepositoryItem data-testid="repositoryItem">
+  <StyledRepositoryItem data-testid="repositoryItem" role="listitem">
     <StyledRepositoryItemHeader>
       <StyledRepositoryItemTitle>{name}</StyledRepositoryItemTitle>
       <Stars stargazers_count={stargazers_count} />

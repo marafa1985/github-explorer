@@ -25,7 +25,6 @@ export const useFetch = <T>(url?: string): FetchResponse<T> => {
           setData(json);
         } catch (error) {
           setHasError(true);
-          console.log(error);
         } finally {
           setIsLoading(false);
         }

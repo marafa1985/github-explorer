@@ -1,4 +1,9 @@
-import { fireEvent, render, screen } from '@testing-library/react';
+import {
+  fireEvent,
+  render,
+  screen,
+  waitForElementToBeRemoved
+} from '@testing-library/react';
 import { SearchPage } from './SearchPage';
 
 describe('SearchPage', () => {
@@ -30,5 +35,35 @@ describe('SearchPage', () => {
     fireEvent.change(input, { target: { value: 'usersearch' } });
 
     expect(input.getAttribute('value')).toBe('usersearch');
+  });
+
+  it('should fetch user from github', async () => {
+    render(<SearchPage />);
+    const input = screen.getByPlaceholderText('Enter username');
+
+    fireEvent.change(input, { target: { value: 'marafa1985' } });
+    const searchForm = screen.getByTestId('searchForm');
+    fireEvent.submit(searchForm);
+
+    const content = await screen.findByTestId('spinner');
+    await waitForElementToBeRemoved(content);
+  });
+
+  it('should show error in case of something went wrong in the search', async () => {
+    global.fetch = jest.fn().mockRejectedValue('');
+    render(<SearchPage />);
+
+    const input = screen.getByPlaceholderText('Enter username');
+
+    fireEvent.change(input, { target: { value: 'marafa1985' } });
+    const searchForm = screen.getByTestId('searchForm');
+    fireEvent.submit(searchForm);
+
+    const content = await screen.findByTestId('spinner');
+    await waitForElementToBeRemoved(content);
+
+    expect(screen.getByTestId('searchResult')).toHaveTextContent(
+      'Something went wrong!'
+    );
   });
 });
