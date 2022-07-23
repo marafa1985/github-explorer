@@ -3,7 +3,7 @@ import { Meta, Story } from '@storybook/react';
 import { Repository, RepositoryProps } from './Repository';
 
 export default {
-  title: 'molecules/RepositoryItem',
+  title: 'molecules/Repository',
   component: Repository
 } as Meta;
 
