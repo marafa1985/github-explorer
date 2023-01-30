@@ -29,4 +29,10 @@ pipeline {
             }
         }
     }
+
+    post{
+        always{
+            junit checksName: 'Jest Tests', testResults: 'coverage/clover.xml'
+        }
+    }
 }
