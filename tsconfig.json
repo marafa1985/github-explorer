@@ -19,5 +19,11 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
+  "exclude": [
+    "../../node_modules",
+    "../../**/*.stories.tsx",
+    "../../**/*.spec.ts",
+    "../../**/*.spec.tsx"
+  ],
   "include": ["src", "src/custom.d.ts"]
 }
